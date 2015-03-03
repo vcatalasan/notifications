@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<link href="bootstrap.css" rel="stylesheet">
+<link href="bootstrap-responsive.css" rel="stylesheet">
+<script src="jquery.bootstrap-growl.js"></script>
+<!-- notifications documentation http://www.jqueryrain.com/?SlxLijWt -->
+</head>
+<body>
+<script type="text/javascript">
+    $(function() {
+        
+		$.bootstrapGrowl("Info Notification", {
+			type: 'info',
+			offset: {from: 'bottom', amount: 10}, // 'top', or 'bottom'
+			align: 'left',
+			width: '200',
+			delay: 10000,
+			allow_dismiss: true
+		});
+        
+		$.bootstrapGrowl("Success Notification", { 
+			type: 'success',
+			offset: {from: 'bottom', amount: 10}, // 'top', or 'bottom'
+			align: 'left',
+			width: '200',
+			delay: 10000,
+			allow_dismiss: true
+		});
+
+		$.bootstrapGrowl("Danger Notification. <a href=\"http://twitter.com\">click here</a> This is a bunch of other stuff to see if it falls to another line break after the width has been filled.", {
+			type: 'danger',
+			offset: {from: 'bottom', amount: 10}, // 'top', or 'bottom'
+			align: 'left',
+			width: '200',
+			delay: 10000,
+			allow_dismiss: true
+		});
+	
+	});
+</script>
+</body>
+</html>
