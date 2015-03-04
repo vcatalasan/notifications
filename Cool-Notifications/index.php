@@ -18,6 +18,9 @@
 	width: 100%;
 	height: 5px;
 }
+    .col-sm-3 {
+        width: 25%;
+    }
 </style>
 </head>
 <body>

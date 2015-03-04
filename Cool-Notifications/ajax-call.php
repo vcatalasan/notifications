@@ -1,9 +1,21 @@
 <?php
+function this_url() {
+    $pageURL = 'http';
+    if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    $pageURL .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80") {
+        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+    } else {
+        $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+    }
+    return $pageURL;
+}
+
 if ($_POST['variable'] == 'value') { 
 
 $type = array("danger","warning","success","info");
 $random_type = $type[array_rand($type)];
-
+$url = preg_replace('/ajax-call.php/', 'icons/', this_url());
 
 if ($random_type == 'danger') {
 	$allow_dismiss = "false";
@@ -14,7 +26,7 @@ if ($random_type == 'danger') {
 <script>
 $.notify({
 	// options
-	icon: 'http://notifications.local/icons/<?php echo $random_type; ?>.png',
+	icon: '<?php echo $url . $random_type; ?>.png',
 	title: '<b><?php echo ucfirst($random_type); ?> Notification Example</b><br />',
 	message: 'This is an example of a notification response from an Ajax call. <a href=\"http://google.com\">click here</a> to go to Google.com',
 	url: 'https://twitter.com',
